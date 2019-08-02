@@ -86,8 +86,21 @@
                     </comment>
                 </field>
             </group>
-
-            <group id="settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="batch_updates" sortOrder="40" translate="label" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Batch Updates</label>
+                <field id="status" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="schedule" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Schedule</label>
+                    <comment>The SDK will store requests until either: time above has passed OR 100 requests to that endpoint are ready to go (whichever comes first).</comment>
+                    <depends>
+                        <field id="*/*/status">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="settings" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Settings</label>
                 <field id="global_id_prefix" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Global ID Prefix</label>
@@ -121,7 +134,7 @@
                 </field>
             </group>
 
-            <group id="schema_update" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="schema_update" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Schema Update</label>
                 <field id="schema_update" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Update Schema?</label>
@@ -129,7 +142,7 @@
                 </field>
             </group>
 
-            <group id="zaius_localizations" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="zaius_localizations" type="text" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Zaius Localizations</label>
                 <comment>Localizations are currently in beta. Please consult with your Zaius Customer Success Manager prior to enabling this feature</comment>
                 <field id="locale_toggle" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">

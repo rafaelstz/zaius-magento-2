@@ -14,7 +14,7 @@
             </settings>
             <batch_updates>
                 <status>0</status>
-                <schedule>*/5 * * * *</schedule>
+                <schedule>* * * * *</schedule>
             </batch_updates>
             <zaius_localizations>
                 <locale_toggle>0</locale_toggle>
